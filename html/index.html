@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Confessions</title>
+    <script src="../app.js"></script>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.delete-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+    </style>
+    <script> 
+  document.getElementById('deleteButton').addEventListener('click', function() {
+    window.location.href = './delete.html';
+  });
+</script>
+    </script>
+</head>
+<body>
+    <h1>Submit Your Confession</h1>
+    <form id="confessionForm" action="/submit" method="POST">
+        <label for="confession">Confession (Max 400 characters):</label>
+        <textarea id="confession" name="confession" rows="4" cols="50" maxlength="400" required></textarea>
+    
+        <button type="submit">Submit</button>
+    </form>
+
+    <form action="deleteconfession" id="redirectForm" method="get">
+        <input type="hidden" name="redirectUrl" value="./delete.html">
+        <button type="submit" class="delete-button">Delete Confession</button>
+      </form>
+</body>
+</html>

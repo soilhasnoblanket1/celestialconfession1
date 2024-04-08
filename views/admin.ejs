@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        li:hover {
+            background-color: #f9f9f9;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 9999;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+            .delete-button {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #a71d2a;
+        }
+    </style>
+</head>
+<body>
+    <div id="passwordOverlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close" onclick="closePasswordOverlay()">&times;</span>
+            <h2>Enter Password</h2>
+            <input type="password" id="passwordInput" placeholder="Enter password">
+            <button onclick="authenticate()">Submit</button>
+        </div>
+    </div>
+    <div class="container">
+        h1>Admin Page</h1>
+    <ul>
+        <% confessions.forEach(confession => { %>
+            <li>
+                <strong>Nickname:</strong> <%= confession.nickname %><br>
+                <strong>Confession:</strong> <%= confession.confession %>
+                <form method="POST" action="/delete/<%= confession._id %>">
+                    <button type="submit" class="delete-button">Delete</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+    </div>
+
+        <div class="overlay" id="overlay">Copied to Clipboard</div>
+
+    <script>
+
+    function copyToClipboard(index) {
+        const text = document.querySelectorAll('li')[index].innerText;
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                document.getElementById('overlay').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('overlay').style.display = 'none';
+                }, 2000);
+            })
+            .catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+    }
+
+    </script>
+</body>
+</html>

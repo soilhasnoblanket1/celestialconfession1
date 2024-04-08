@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "build": "cp -r app.js server.js models/ views/ html/"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.0",
+    "path": "^0.12.7"
+  }
+}

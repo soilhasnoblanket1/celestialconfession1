@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Confession</title>
+<style>
+  .container {
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .form-input {
+    margin-bottom: 10px;
+  }
+
+  .delete-button {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="title">
+    Delete Your Confession
+  </div>
+  <form action="/delete" method="post" id="deleteForm">
+    <label for="objectId">Enter Object ID to delete your confession:</label><br>
+    <input type="text" id="objectId" name="objectId" class="form-input"><br>
+    <button type="submit" class="delete-button">Delete Confession</button>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recent Confession</title>
+<style>
+  .container {
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .object-code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .confession-box {
+    background-color: #e0e0e0;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  .copy-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="title">
+    Thank You for Sending Your Confession
+  </div>
+
+  <div>
+    Copy this object code if you later decide to delete your confession
+  </div>
+  <br><br>
+  <div class="object-code">
+    Object ID: <%= confession._id %>
+  </div>
+  <div class="confession-box">
+    Confession: <%= confession.confession %>
+  </div>
+  <br>
+</div>
+</div>
+</body>
+</html>
